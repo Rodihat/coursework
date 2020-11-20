@@ -103,6 +103,17 @@ let app = new Vue({
             alert("Order Submitted !");
             this.cart = [];
         },       
+        nameFill() {
+            let btn = document.getElementById("checkoutBtn");
+            let name = document.getElementById("name");
+            let number = document.getElementById("number");
+
+            if (name.value == '' || number.value == '') {
+                btn.style.visibility = 'hidden';
+            } else {
+                document.getElementById("buttonn").innerHTML = `<button id="checkoutBtn" style="margin-top: 30px; background-color: darkblue; border-radius: 0" @click="ordered()"> Checkout</button>`
+            }
+        },
         canAdd(lesson) {
             return lesson.spaces > this.cartCount(product.id);
         },
@@ -110,7 +121,6 @@ let app = new Vue({
         zeroo() {
             return 0;
         },
-
         sortPrice() {
             function compare(a, b) {
                 if (a.price > b.price) return 1;
@@ -139,6 +149,22 @@ let app = new Vue({
             function compare(a, b) {
                 if (a.spaces > b.spaces) return 1;
                 if (a.spaces < b.spaces) return -1;
+                return 0;
+            }
+            return this.lessons.sort(compare);
+        },
+        ascending() {
+            function compare(a, b) {
+                if (a.lesson > b.lesson) return 1;
+                if (a.lesson < b.lesson) return -1;
+                return 0;
+            }
+            return this.lessons.sort(compare);
+        },
+        descending() {
+            function compare(a, b) {
+                if (a.lesson < b.lesson) return 1;
+                if (a.lesson > b.lesson) return -1;
                 return 0;
             }
             return this.lessons.sort(compare);

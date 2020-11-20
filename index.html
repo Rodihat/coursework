@@ -65,8 +65,23 @@
             <li><button class="sorts" @click="descending()">Descending</button></li>
         </ul>
     </div>
+    
+    <!--Shopping cart-->
+    <div v-else>
+        <nav>
+            <span>Shopping Cart</span>
+            <!--Content in navigation bar-->
+            <ul>
+                <li>
+                    <button @click='showCheckout()' style="width: 200px;" v-if="isCart">
+                        {{itemCount}}
+                        <span class="fas fa-cart-plus"></span> Go Back
+                    </button>
+                </li>
+            </ul>
+        </nav>
     </div>
-    <div v-else></div>
+    </div>
 </body>
 
 </html>
