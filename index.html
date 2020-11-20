@@ -85,8 +85,8 @@
     <div class="checkout">
         <h1>Your Details</h1>
         <p style="display: inline; margin-left: px">Name: </p><input @keydown='nameFill()' id="name"
-            oninput="this.value = this.value.replace(/[^A-Z||a-z]/g, '').replace(/(\..*)\./g, '$1');"
-            type="text" style="margin-left: 20px" v-model="order.name">
+            oninput="this.value = this.value.replace(/[^A-Z||a-z]/g, '').replace(/(\..*)\./g, '$1');" type="text"
+            style="margin-left: 20px" v-model="order.name">
 
         <br>
         <br>
@@ -100,9 +100,12 @@
             <button id="checkoutBtn" @click="ordered()" hidden></button>
         </div>
     </div>
-</div>
-</div>
-</div>
+
+    </div>
+
+    </div>
+    
+    </div>
 
     <script src="lessons.js"></script>
 </body>

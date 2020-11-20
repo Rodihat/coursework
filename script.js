@@ -121,6 +121,13 @@ let app = new Vue({
         zeroo() {
             return 0;
         },
+        remove(lesson) {
+            let index = this.cart.indexOf(lesson);
+            if (index > -1) {
+                this.cart.splice(index, 1);
+                lesson.spaces++;
+            }
+        },
         sortPrice() {
             function compare(a, b) {
                 if (a.price > b.price) return 1;
