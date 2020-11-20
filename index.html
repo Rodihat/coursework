@@ -1,13 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>After School Tutoring</title>
-        <link rel="stylesheet" href="style.css">
-        <script src="https://unpkg.com/vue"></script>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
-    </head>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>After School Tutoring</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://unpkg.com/vue"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+</head>
+
 <body>
     <div id="container">
         <!--Navigation bar-->
@@ -28,6 +30,7 @@
             </nav>
         </div>
     </div>
+
     <div>
         <div>
             <div id="lessons">
@@ -48,5 +51,22 @@
             </div>
         </div>
     </div>
+
+    <!--Sort div-->
+    <div id="sort">
+        <p>Sort Lessons By:</p>
+        <ul>
+            <li><button class="sorts" @click="sortTitle()">Subject</button></li>
+            <li><button class="sorts" @click="sortLocation()">Location</button></li>
+            <li><button class="sorts" @click="sortPrice()">Price</button></li>
+            <li><button class="sorts" @click="sortSpaces()">Availability</button></li>
+            <br>
+            <li><button class="sorts" @click="ascending()">Ascending</button></li>
+            <li><button class="sorts" @click="descending()">Descending</button></li>
+        </ul>
+    </div>
+    </div>
+    <div v-else></div>
 </body>
+
 </html>

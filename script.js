@@ -76,3 +76,81 @@ let app = new Vue({
         },
 
         ],
+
+        cart: [],
+
+        showProducts: true,
+
+        info: "",
+
+        order: {
+        },
+
+        btnShow: false,
+    },
+    methods: {
+        //Method to add to cart
+        add: function (lesson) {
+            this.cart.push(lesson);
+            lesson.spaces--;
+
+        },
+
+        showCheckout() {
+            this.showProducts = this.showProducts ? false : true;
+        },
+        ordered(){
+            alert("Order Submitted !");
+            this.cart = [];
+        },       
+        canAdd(lesson) {
+            return lesson.spaces > this.cartCount(product.id);
+        },
+
+        zeroo() {
+            return 0;
+        },
+
+        sortPrice() {
+            function compare(a, b) {
+                if (a.price > b.price) return 1;
+                if (a.price < b.price) return -1;
+                return 0;
+            }
+            return this.lessons.sort(compare);
+        },
+        sortTitle() {
+            function compare(a, b) {
+                if (a.title > b.title) return 1;
+                if (a.title < b.title) return -1;
+                return 0;
+            }
+            return this.lessons.sort(compare);
+        },
+        sortLocation() {
+            function compare(a, b) {
+                if (a.location > b.location) return 1;
+                if (a.location < b.location) return -1;
+                return 0;
+            }
+            return this.lessons.sort(compare);
+        },
+        sortSpaces() {
+            function compare(a, b) {
+                if (a.spaces > b.spaces) return 1;
+                if (a.spaces < b.spaces) return -1;
+                return 0;
+            }
+            return this.lessons.sort(compare);
+        },
+    },
+    computed: {
+        itemCount() {
+            return this.cart.length || '';
+        },
+        isCart() {
+            if (this.cart.length > 0)
+                return this.cart.length;
+        }
+    },
+})
