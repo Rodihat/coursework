@@ -28,5 +28,25 @@
             </nav>
         </div>
     </div>
+    <div>
+        <div>
+            <div id="lessons">
+                <p class="header">Lessons</p>
+                <div v-for="(lesson, index) in lessons" id="lessonss">
+                    <img v-bind:src="lesson.image" class="pic">
+                    <span class="lessonT">{{ lesson.title }}</span>
+                    <span class="location">Location: {{ lesson.location }}</span>
+                    <span class="price">Price: £{{lesson.price}}</span>
+                    <span class="spaces">Availability:
+                        <span v-text="lesson.spaces"></span>
+                    </span>
+                    <div id="b_holder" @click="add(lesson)">
+                        <span v-if="lesson.spaces &gt; zeroo()"> <button>Add to cart</button> </span>
+                        <span v-else><button hidden></button></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
